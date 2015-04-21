@@ -12,8 +12,14 @@ buildscript {
     }
 }
 
+configurations {
+    compile.exclude module: "spring-boot-starter-tomcat"
+}
+
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:1.2.3.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-jetty:1.2.3.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web:1.2.3.RELEASE")
     compile("org.postgresql:postgresql:9.4-1201-jdbc41")
     testCompile("junit:junit")
 }
