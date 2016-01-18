@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+    }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.postgresql:postgresql:9.4-1201-jdbc41")
+    testCompile("junit:junit")
+}
+
+jar {
+    baseName = 'teammanager'
+    version =  '0.0.1'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
